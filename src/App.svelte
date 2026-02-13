@@ -1,0 +1,41 @@
+<script>
+
+  import Interior from "./Interior.svelte";
+  import Button from "./lib/Evento.svelte"
+  import V7 from "./lib/v7.svelte";
+  import V8 from "./lib/V8coondiciones.svelte";
+  import V9 from "./lib/V9ciclos.svelte";
+  import V10 from "./lib/V10.svelte";
+  import V11 from "./lib/v11.svelte";
+  import V11p2 from "./lib/V11p2.svelte";
+  import V11p3 from "./lib/V11p3.svelte";
+  export let nombre;
+
+</script>
+
+<h1>hola mundo</h1>
+<p>hola como estas {nombre}</p>
+<p>{[1,2,3]}</p>
+<!-- 
+<Interior nombre={nombre}/>
+<Button />
+<V7/> 
+<V8/>
+ <V9/>
+-->
+ <!-- <V10/> -->
+  <!-- <V11/> -->
+   <!-- <V11p2/> -->
+    <V11p3/>
+ <style> 
+
+  h1 {
+    color: blue;
+  }
+
+  p {
+    color: brown;
+    font-family: fantasy; /* ← aquí iba */
+    font-size: 18px;      /* tamaño válido */
+  }
+</style>
