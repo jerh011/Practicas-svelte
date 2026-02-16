@@ -1,23 +1,46 @@
 <script>
-    import {createEventDispatcher} from "svelte";
-    
+    import { createEventDispatcher} from 'svelte'
     export let identifier;
     export let label;
-
     export let min;
     export let max;
-    
-    const dispatch=createEventDispatcher();
+    const dispatch= createEventDispatcher();
+
+    function cambiarMin(e){
+        const nuevoMin=parseInt(e.target.value);
+        dispatch('update',{min:nuevoMin,max})
+    }
+
+    function cambiarMax(e){
+        const nuevoMax=parseInt(e.target.value);
+        dispatch('update',{min,max:nuevoMax})
+    }
 
 </script>
+
 <p>
-    <label id={identifier + "_min"}>{label} minimo</label>
-    <input type="range" min={0} max={5000} value={min}/>
+    <label for={identifier + "_min"}>{label} mínimo</label>
+    <input
+        id={identifier + "_min"}
+        type="range"
+        min="0"
+        max="50000"
+        value={min}
+        on:change={cambiarMin}
+        />
+    <span>{min}</span>
+
 </p>
 
 <p>
-    <label id={identifier + "_max"}>{label} maximo</label>
-    <input type="range" min={0} max={5000} value={max}/>
-
+    <label for={identifier + "_max"}>{label} máximo</label>
+    <input
+        id={identifier + "_max"}
+        type="range"
+        min="0"
+        max="50000"
+        value={max}
+        on:change={cambiarMax}
+    />
+    <span>{max}</span>
 </p>
-
